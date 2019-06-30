@@ -25,7 +25,7 @@ public class Account {
     static HashMap<String, Account> accountDict = new HashMap<String, Account>();  // list of user accounts
 
 
-    Transaction transaction;
+    //Transaction transaction;
 
     public Account() { };
 
@@ -45,7 +45,7 @@ public class Account {
     // create account
     public Account createAccount() {
         System.out.print("What would you like your new account to be called? ");
-        String _accountName = input.next();
+        String _accountName = input.nextLine();
         Account anAccount = new Account(_accountName);
         accountDict.put(_accountName, anAccount);
         System.out.println("Added the account " + BLUE + _accountName + RESET);
@@ -58,7 +58,7 @@ public class Account {
         viewUserAccounts();
 
         System.out.print("Name of account to access: ");
-        String _accountName = input.next();
+        String _accountName = input.nextLine();
 
         if(accountDict.containsKey(_accountName)) {
             System.out.println("Switched to account " + BLUE + _accountName + RESET);
@@ -101,7 +101,7 @@ public class Account {
         System.out.print("Enter the amount you would like to deposit: ");
         double depositAmount = input.nextDouble();
         if(depositAmount > 0) {
-            transaction = new Transaction("deposit", depositAmount);
+            //transaction = new Transaction("deposit", depositAmount);
             balance += depositAmount;
         }
     }
