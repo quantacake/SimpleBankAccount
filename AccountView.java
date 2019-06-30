@@ -16,7 +16,8 @@ public class AccountView {
         while(!exit) {
 
             System.out.print(
-                    "\nAccount Options\nPlease choose the option you would like to do.\n" +
+                    "\n(" + _account.getAccountName() + ")" +
+                    " Account Options\nPlease choose the option you would like to do.\n" +
                             "1. Add an account\n" +
                             "2. Switch accounts\n" +
                             "3. Check balance\n" +

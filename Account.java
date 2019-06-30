@@ -15,7 +15,6 @@ public class Account {
     public static final String RESET = "\033[0m";  // Text Reset
 
     Scanner input = new Scanner(System.in);
-    private boolean newHolder;
     private static AtomicLong accountNumber = new AtomicLong(123456789);
     private Date dateCreated;
     private String accountName;
@@ -45,7 +44,7 @@ public class Account {
     // create account
     public Account createAccount() {
         System.out.print("What would you like your new account to be called? ");
-        String _accountName = input.nextLine();
+        String _accountName = input.next();
         Account anAccount = new Account(_accountName);
         accountDict.put(_accountName, anAccount);
         System.out.println("Added the account " + BLUE + _accountName + RESET);
@@ -58,7 +57,7 @@ public class Account {
         viewUserAccounts();
 
         System.out.print("Name of account to access: ");
-        String _accountName = input.nextLine();
+        String _accountName = input.next();
 
         if(accountDict.containsKey(_accountName)) {
             System.out.println("Switched to account " + BLUE + _accountName + RESET);
@@ -86,7 +85,7 @@ public class Account {
             balance -= withdrawalAmount;
 
         } else if(withdrawalAmount > balance) {
-            System.out.println("The withdraw must be more than your balance of $" + GREEN + balance + RESET);
+            System.out.println("The withdraw must be less than or equal to your balance of $" + GREEN + balance + RESET);
             makeWithdrawal();
 
         } else {
@@ -130,12 +129,19 @@ public class Account {
         }
     }
 
+    // print account name
+    public String getAccountName() {
+        return accountName;
+    }
+
     // displays when user is about to switch accounts.
     public void viewUserAccounts() {
         // print keys/accountnames
         for (Map.Entry<String, Account> entry : accountDict.entrySet()) {
             String key = entry.getKey();
-            System.out.println(BLUE + key + RESET);
+            if(key != accountName) {
+                System.out.println(BLUE + key + RESET);
+            }
             //Account value = entry.getValue();
         }
     }
