@@ -48,7 +48,7 @@ public class Account {
         String _accountName = input.next();
         Account anAccount = new Account(_accountName);
         accountDict.put(_accountName, anAccount);
-        System.out.println("Added the account " + _accountName);
+        System.out.println("Added the account " + BLUE + _accountName + RESET);
         return anAccount;
     }
 
@@ -76,13 +76,7 @@ public class Account {
         System.out.println("Balance: " + BLUE + balance + RESET);
     }
 
-    // 4 DELETE
-    public void payBill() {
-        System.out.println("unfinish...");
-
-    }
-
-    // 5
+    // 4
     public void makeWithdrawal() {
 
         System.out.print("Enter the amount you want to withdraw: ");
@@ -101,7 +95,7 @@ public class Account {
         }
     }
 
-    // 6
+    // 5
     public void makeDeposit() {
 
         System.out.print("Enter the amount you would like to deposit: ");
@@ -112,21 +106,16 @@ public class Account {
         }
     }
 
-    // 7  DELETE
-    public void viewTransactionHistory() {
-
-    }
-
-    // 8
+    // 6
     public void viewCurrentAccount() {
 
         System.out.println("\nAccount Name: " + BLUE + accountName + RESET +
                 "\nAccount Number: " + BLUE + accountNumber + RESET +
-                "\nDate Created: " + BLUE + dateCreated.toString() + RESET +
+                //"\nDate Created: " + BLUE + dateCreated.toString() + RESET +
                 "\nBalance: " + BLUE + balance + RESET);
     }
 
-    // 9
+    // 7
     public void viewAllAccounts() {
 
         Account _account;
@@ -141,6 +130,7 @@ public class Account {
         }
     }
 
+    // displays when user is about to switch accounts.
     public void viewUserAccounts() {
         // print keys/accountnames
         for (Map.Entry<String, Account> entry : accountDict.entrySet()) {
@@ -149,5 +139,4 @@ public class Account {
             //Account value = entry.getValue();
         }
     }
-
 }
