@@ -61,7 +61,7 @@ public class Account {
         String _accountName = input.next();
 
         if(accountDict.containsKey(_accountName)) {
-            System.out.println("Switched to account " + _accountName);
+            System.out.println("Switched to account " + BLUE + _accountName + RESET);
             return accountDict.get(_accountName);
         } else {
             System.out.println("The account " + RED + _accountName + RESET + " does not exist.");
@@ -120,7 +120,7 @@ public class Account {
     // 8
     public void viewCurrentAccount() {
 
-        System.out.println("Account Name: " + BLUE + accountName + RESET +
+        System.out.println("\nAccount Name: " + BLUE + accountName + RESET +
                 "\nAccount Number: " + BLUE + accountNumber + RESET +
                 "\nDate Created: " + BLUE + dateCreated.toString() + RESET +
                 "\nBalance: " + BLUE + balance + RESET);
